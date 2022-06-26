@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<h1>All tickets</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Seat</th>
+      <th>Price</th>
+      <th>Flight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tickets.forEach(function(ticket) { %>
+      <tr>
+        <td><%= ticket.seat %></td>
+        <td><%= ticket.price %></td>
+        <td><%= ticket.flight %></td>
+
+        <td><a href="/tickets/<%= ticket.id %>">Ticket Details</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+</body>
+</html>
