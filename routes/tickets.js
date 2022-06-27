@@ -8,6 +8,7 @@ router.get('/:id', ticketsCtrl.show);
 
 
 
+
 router.post('/', ticketsCtrl.create);
 router.post('/flights/:id/tickets', ticketsCtrl.addToTickets);
 

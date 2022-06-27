@@ -5,6 +5,7 @@ module.exports = {
     new: newFlight, 
     create, 
     show, 
+    new: newTicket, 
 }
 
 
@@ -20,6 +21,10 @@ function index(req, res) {
 // New flight page render
 function newFlight(req, res) {
     res.render('flights/new')
+}
+
+function newTicket(req, res) {
+    res.render('tickets/new')
 }
 
 // Creates and adds new flight in database

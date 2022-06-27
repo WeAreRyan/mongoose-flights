@@ -30,15 +30,16 @@ function create(req, res) {
             console.log(err)
         }
     })
-    res.redirect(`/flights/${flight._id}`);
+    res.redirect(`/flights/${flights._id}`);
 }
 
 function addToTickets(req, res) {
     Flight.findById(req.params.id, function(err, flight) {
-        console.log(req.body)
+        console.log(req.params.id,)
+        // console.log(req.body)
         flight.ticket.push(req.body.ticketId)
         flight.save(function(err) {
-            res.redirect(`/flights/${flight_id}`)
+            res.redirect(`/flights/${flights_id}`)
         })
     })
 }
