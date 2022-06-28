@@ -61,18 +61,16 @@
 </section>
 </br>
 <div>Tickets: </div>
-<ul>
-    <%- flight.tickets.map(ticket =>
-     `<li>${ticket.seat} <small>${ticket.price}</small></li>`
-).join('') %>
-</ul>
+<% tickets.forEach(function(ticket) { %>
+    <% if (ticket.flight === req.params.id) { %>
+        <div>Seat Number:  <%= ticket.seat %> </div>
+        <div>Ticket Price: <%= ticket.price %> </div>
+    <%= } else {} %>
+<% }) %>
 <br>
+<a href="/flights/<%= flight.id %>/tickets/new">Add New Ticket</a>
+
+
 <div>Add New Ticket</div>
-<form id="add-ticket" method="Post" action="/tickets">
-    <label>Seat Number: </label>
-    <input type="text" name="seat">
-    <label>Price: </label>
-    <input type="number" name="price">
-    <input type="submit" value="Add Ticket">
-</form>
+
     <%- include('../partials/footer') %>

@@ -46,3 +46,7 @@ a {
 #destination-form {
   
 }
+
+.hidden {
+  display: none;
+}

@@ -5,7 +5,7 @@ module.exports = {
     index, 
     create, 
     addToTickets,
-    show,
+    new: newTicket, 
 }
 
 function index(req, res) {
@@ -16,26 +16,26 @@ function index(req, res) {
     })
 }
 
-function show(req, res) {
-    Ticket.findById(req.params.id, function(err, ticket) {
-        res.render('tickets/show', {title: 'Ticket Details', ticket});
-    });
+
+function newTicket(req, res) {
+    flightId = req.params.id;
+    res.render('tickets/new')
 }
 
-
 function create(req, res) {
-    const ticket = new Ticket(req.body)
+    const ticket = new Ticket(req.body);
+    console.log(ticket);
     ticket.save(function(err) {
         if(err) {
             console.log(err)
         }
     })
-    res.redirect(`/flights/${flights._id}`);
 }
+
+
 
 function addToTickets(req, res) {
     Flight.findById(req.params.id, function(err, flight) {
-        console.log(req.params.id,)
         // console.log(req.body)
         flight.ticket.push(req.body.ticketId)
         flight.save(function(err) {
